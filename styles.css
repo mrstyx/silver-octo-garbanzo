@@ -1,0 +1,202 @@
+/* Color scheme: Blue and Purple */
+:root {
+    --primary-purple: #6b4fa3;
+    --secondary-purple: #8b6bb3;
+    --light-purple: #b39ddb;
+    --primary-blue: #4a7ba7;
+    --secondary-blue: #5a8bc4;
+    --light-blue: #90caf9;
+    --dark-bg: #2d1b4e;
+    --card-bg: #ffffff;
+    --text-dark: #1a1a2e;
+    --text-light: #f5f5f5;
+    --fun-fact-bg: #e8dff5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-purple) 100%);
+    color: var(--text-light);
+    text-align: center;
+    padding: 3rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: var(--light-purple);
+    font-style: italic;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.dinosaur-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.dinosaur-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+}
+
+.dinosaur-card::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    border-radius: 15px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dinosaur-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(107, 79, 163, 0.4);
+}
+
+.dinosaur-card:hover::before {
+    opacity: 1;
+}
+
+.dino-image {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--light-purple) 0%, var(--light-blue) 100%);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.dino-image svg {
+    max-width: 100%;
+    max-height: 100%;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.dinosaur-card h2 {
+    color: var(--primary-purple);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    border-bottom: 3px solid var(--primary-blue);
+    padding-bottom: 0.5rem;
+}
+
+.description {
+    color: var(--text-dark);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: justify;
+    line-height: 1.7;
+}
+
+.fun-fact {
+    background: var(--fun-fact-bg);
+    border-left: 4px solid var(--primary-purple);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
+.fun-fact strong {
+    color: var(--primary-purple);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+footer {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-purple) 100%);
+    color: var(--text-light);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+.footer-note {
+    font-size: 0.9rem;
+    color: var(--light-purple);
+    font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .dinosaur-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .dinosaur-card h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 2rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .dino-image {
+        height: 150px;
+    }
+}
